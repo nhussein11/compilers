@@ -1,14 +1,10 @@
 import ply.lex as lex
 
-t_ignore_ESPACIOS = r"[ ]+"
-
 reserved = {
     'if' : 'IF',
     'then' : 'THEN',
     'else' : 'ELSE',
 }
-
-tokens = ["ID", "NUMERO", "OPERADOR", "PARENTESIS"] + list(reserved.values())
 
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
@@ -36,7 +32,11 @@ def t_newline(t):
   r'\n'
   t.lexer.lineno += 1
 
-lexer = lex.lex()
+def t_ignore_ESPACIOS(t):
+    r'[ ]+'
+    pass
+
+tokens = ["ID", "NUMERO", "OPERADOR", "PARENTESIS"] + list(reserved.values())
 
 filename = './ejemplo.txt'
 
@@ -49,6 +49,7 @@ except IndexError:
     print('Error al leer el archivo')
     data=''
 
+lexer = lex.lex()
 lexer.input(data)
 
 print("Token - Lexema")
