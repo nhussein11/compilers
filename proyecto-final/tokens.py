@@ -23,7 +23,6 @@ tokens = [
     "PARENTESIS",
     "COMA",
     "ID",
-    "LIBRERIA",
     "VARTYPESEPARATOR",
     "TYPE",
     "NUMBER",
