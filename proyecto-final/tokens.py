@@ -16,8 +16,7 @@ reserved = {
     "IZQUIERDA": "IZQUIERDA",
     "DERECHA": "DERECHA",
     "ESPERAR": "ESPERAR",
-    "FRENAR": "FRENAR",
-}
+    "FRENAR": "FRENAR", "SALTODELINEA":"ENDOFLINE"}
 
 tokens = [
     "PARENTESIS",
@@ -80,9 +79,11 @@ def t_COMA(t):
     r","
     return t
 
-
+def t_ENDOFLINE(t):
+    r";"
+    return t
 def t_newline(t):
-    r";\n|\n|;"
+    r"\n"
     t.lexer.lineno += 1
 
 
