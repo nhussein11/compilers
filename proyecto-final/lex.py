@@ -1,3 +1,4 @@
+from unittest import skip
 from ply import lex
 reserved = {
     "PINICIO": "INICIODEPROGRAMA",
@@ -72,7 +73,7 @@ def t_OPERADOR(t):
 def t_COMMENT(t):
     r"//.* | {\*.\*}"
     t.lineno += 1
-    return t
+    t.lexer.skip(1)
 
 
 def t_PARENTESISA(t):

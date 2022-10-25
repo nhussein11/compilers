@@ -21,7 +21,21 @@ def p_cuerpo(p):
             | procedimiento cuerpo
             | condicional cuerpo
             | bucle cuerpo
+            | reservadas cuerpo
+            | vpin cuerpo
             | empty"""
+  pass
+def p_vpin(p):
+  """vpin : VPIN PARENTESISA ID VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE"""
+  pass
+def p_reservadas(p):
+  """ reservadas : ADELANTE PARENTESISA PARENTESISC ENDOFLINE
+                | ATRAS PARENTESISA  PARENTESISC ENDOFLINE
+                | IZQUIERDA PARENTESISA  PARENTESISC ENDOFLINE
+                | DERECHA PARENTESISA PARENTESISC ENDOFLINE
+                | ESPERAR PARENTESISA NUMBER PARENTESISC ENDOFLINE
+                | ESPERAR PARENTESISA ID PARENTESISC ENDOFLINE
+                | FRENAR PARENTESISA PARENTESISC ENDOFLINE"""
   pass
 def p_bucle(p):
   """bucle : WHILE PARENTESISA PARENTESISC BEGIN cuerpo END ENDOFLINE"""
@@ -53,5 +67,9 @@ def p_argumentos(p):
 def p_empty(p):
   'empty :'
   pass
+def p_error(p):
+  print("Error sintÃ¡ctico en la li­nea: " + str(p.lineno)
+              + ". No se esperaba el token: " + str(p.value))
+  raise Exception('syntax', 'error')
 analizador_sintactico = yacc.yacc()
 analizador_lexico.lineno = 0
