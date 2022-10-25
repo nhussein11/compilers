@@ -19,13 +19,21 @@ def p_cuerpo(p):
             | funcion cuerpo
             | asignacion cuerpo
             | procedimiento cuerpo
+            | condicional cuerpo
             | empty"""
+  pass
+def p_condicional(p):
+  """condicional : IF PARENTESISA PARENTESISC BEGIN cuerpo END ENDOFLINE
+                 | IF PARENTESISA PARENTESISC BEGIN cuerpo END ELSE BEGIN cuerpo END ENDOFLINE"""
   pass
 def p_procedimiento(p):
   """procedimiento : PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINE"""
   pass
 def p_asignacion(p):
-  """asignacion : ID IGUAL ID ENDOFLINE"""
+  """asignacion : ID IGUAL ID ENDOFLINE
+                  | ID IGUAL NUMBER ENDOFLINE
+                  | ID IGUAL DECIMALNUMBER ENDOFLINE
+                  """
   pass
 def p_funcion(p):
   """funcion : FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE"""
