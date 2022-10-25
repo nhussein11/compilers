@@ -51,6 +51,7 @@ def p_asignacion(p):
   """asignacion : ID IGUAL ID ENDOFLINE
                   | ID IGUAL NUMBER ENDOFLINE
                   | ID IGUAL DECIMALNUMBER ENDOFLINE
+                  | ID IGUAL BOOLEANS ENDOFLINE
                   """
   pass
 def p_funcion(p):

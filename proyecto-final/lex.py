@@ -28,6 +28,7 @@ tokens = [
     "VARTYPESEPARATOR",
     "TYPE",
     "TYPEVPIN",
+    "BOOLEANS",
     "NUMBER",
     "DECIMALNUMBER",
     "OPERADOR",
@@ -55,6 +56,9 @@ def t_TYPEVPIN(t):
 def t_NUMBER(t):
     r"\d+"
     t.value = int(t.value)
+    return t
+def t_BOOLEANS(t):
+    r"true|false"
     return t
 
 def t_IGUAL(t):
