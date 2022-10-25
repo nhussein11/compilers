@@ -1,0 +1,7 @@
+PINICIO
+extend(nombreDeLibreria.Extension);
+FUN main(cosa:int):int;
+VBLE(MD1:int);
+VBLE(MD2:int);
+PEND
+

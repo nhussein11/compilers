@@ -1,3 +1,4 @@
+from ply import lex
 reserved = {
     "PINICIO": "INICIODEPROGRAMA",
     "PEND": "FINPROGRAMA",
@@ -16,10 +17,11 @@ reserved = {
     "IZQUIERDA": "IZQUIERDA",
     "DERECHA": "DERECHA",
     "ESPERAR": "ESPERAR",
-    "FRENAR": "FRENAR", "SALTODELINEA":"ENDOFLINE"}
+    "FRENAR": "FRENAR"}
 
 tokens = [
-    "PARENTESIS",
+    "PARENTESISA",
+    "PARENTESISC",
     "COMA",
     "ID",
     "VARTYPESEPARATOR",
@@ -27,7 +29,10 @@ tokens = [
     "NUMBER",
     "DECIMALNUMBER",
     "OPERADOR",
+    "OPERADORPUNTO",
     "COMMENT",
+    "ENDOFLINE",
+    "EXTENSION"
 ] + list(reserved.values())
 
 
@@ -40,13 +45,6 @@ def t_TYPE(t):
     r"int|string|float|bool|INPUT|OUTPUT"
     return t
 
-
-def t_ID(t):
-    r"[a-zA-Z_][a-zA-Z0-9]*"
-    t.type = reserved.get(t.value, "ID")
-    return t
-
-
 def t_NUMBER(t):
     r"\d+"
     t.value = int(t.value)
@@ -57,10 +55,14 @@ def t_DECIMALNUMBER(t):
     r"\d+\.\d+"
     t.value = float(t.value)
     return t
-
-
+def t_EXTENSION(t):
+    r"Extension"
+    return t
+def t_OPERADORPUNTO(t):
+    r'\.'
+    return t
 def t_OPERADOR(t):
-    r"[+|-|*|>|<|>=|<=|==|!=|&&|.]"
+    r"[+|-|*|>|<|>=|<=|==|!=|&&]"
     return t
 
 
@@ -70,11 +72,13 @@ def t_COMMENT(t):
     return t
 
 
-def t_PARENTESIS(t):
-    r"[\(|\)]+"
+def t_PARENTESISA(t):
+    r"\("
     return t
 
-
+def t_PARENTESISC(t):
+    r"\)"
+    return t  
 def t_COMA(t):
     r","
     return t
@@ -92,5 +96,12 @@ def t_error(t):
         "Se encontró un error: %s" % repr(t.value[0]) + " en la linea " + str(t.lineno)
     )
     t.lexer.skip(1)
+def t_space(t):
+    r'\s+'
+    pass
+def t_ID(t):
+    r"[a-zA-Z_][a-zA-Z0-9]*"
+    t.type = reserved.get(t.value, "ID")
+    return t
 
-lexer = lex.lex()
+analizador_lexico = lex.lex()
