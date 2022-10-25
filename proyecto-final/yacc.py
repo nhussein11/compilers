@@ -20,7 +20,11 @@ def p_cuerpo(p):
             | asignacion cuerpo
             | procedimiento cuerpo
             | condicional cuerpo
+            | bucle cuerpo
             | empty"""
+  pass
+def p_bucle(p):
+  """bucle : WHILE PARENTESISA PARENTESISC BEGIN cuerpo END ENDOFLINE"""
   pass
 def p_condicional(p):
   """condicional : IF PARENTESISA PARENTESISC BEGIN cuerpo END ENDOFLINE
