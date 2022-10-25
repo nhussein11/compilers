@@ -26,7 +26,7 @@ def p_cuerpo(p):
             | empty"""
   pass
 def p_vpin(p):
-  """vpin : VPIN PARENTESISA ID VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE"""
+  """vpin : VPIN PARENTESISA ID VARTYPESEPARATOR TYPEVPIN PARENTESISC ENDOFLINE"""
   pass
 def p_reservadas(p):
   """ reservadas : ADELANTE PARENTESISA PARENTESISC ENDOFLINE

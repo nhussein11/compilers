@@ -27,6 +27,7 @@ tokens = [
     "ID",
     "VARTYPESEPARATOR",
     "TYPE",
+    "TYPEVPIN",
     "NUMBER",
     "DECIMALNUMBER",
     "OPERADOR",
@@ -44,7 +45,11 @@ def t_VARTYPESEPARATOR(t):
 
 
 def t_TYPE(t):
-    r"int|string|float|bool|INPUT|OUTPUT"
+    r"int|string|float|bool"
+    return t
+
+def t_TYPEVPIN(t):
+    r"INPUT|OUTPUT"
     return t
 
 def t_NUMBER(t):
