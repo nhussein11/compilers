@@ -18,7 +18,11 @@ def p_cuerpo(p):
   """ cuerpo : variable cuerpo
             | funcion cuerpo
             | asignacion cuerpo
+            | procedimiento cuerpo
             | empty"""
+  pass
+def p_procedimiento(p):
+  """procedimiento : PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINE"""
   pass
 def p_asignacion(p):
   """asignacion : ID IGUAL ID ENDOFLINE"""

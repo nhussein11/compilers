@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ADELANTE ATRAS BEGIN COMA COMMENT DECIMALNUMBER DERECHA ELSE END ENDOFLINE ESPERAR EXTENSION FINPROGRAMA FRENAR FUNCION ID IF IGUAL INICIODEPROGRAMA IZQUIERDA LIBRERIA NUMBER OPERADOR OPERADORPUNTO PARENTESISA PARENTESISC PROCEDIMIENTO TYPE VARIABLE VARTYPESEPARATOR VPIN WHILEprograma : INICIODEPROGRAMA declaraciones FINPROGRAMAdeclaraciones : librerias\n                   | cuerpo librerias : LIBRERIA PARENTESISA ID OPERADORPUNTO EXTENSION PARENTESISC COMA librerias\n                | LIBRERIA PARENTESISA ID OPERADORPUNTO EXTENSION PARENTESISC ENDOFLINE cuerpo cuerpo : variable cuerpo\n            | funcion cuerpo\n            | asignacion cuerpo\n            | emptyasignacion : ID IGUAL ID ENDOFLINEfuncion : FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINEvariable : VARIABLE PARENTESISA ID  VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE argumentos : ID VARTYPESEPARATOR TYPE COMA argumentos\n                 | ID VARTYPESEPARATOR TYPEempty :'
+_lr_signature = 'ADELANTE ATRAS BEGIN COMA COMMENT DECIMALNUMBER DERECHA ELSE END ENDOFLINE ESPERAR EXTENSION FINPROGRAMA FRENAR FUNCION ID IF IGUAL INICIODEPROGRAMA IZQUIERDA LIBRERIA NUMBER OPERADOR OPERADORPUNTO PARENTESISA PARENTESISC PROCEDIMIENTO TYPE VARIABLE VARTYPESEPARATOR VPIN WHILEprograma : INICIODEPROGRAMA declaraciones FINPROGRAMAdeclaraciones : librerias\n                   | cuerpo librerias : LIBRERIA PARENTESISA ID OPERADORPUNTO EXTENSION PARENTESISC COMA librerias\n                | LIBRERIA PARENTESISA ID OPERADORPUNTO EXTENSION PARENTESISC ENDOFLINE cuerpo cuerpo : variable cuerpo\n            | funcion cuerpo\n            | asignacion cuerpo\n            | procedimiento cuerpo\n            | emptyprocedimiento : PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINEasignacion : ID IGUAL ID ENDOFLINEfuncion : FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINEvariable : VARIABLE PARENTESISA ID  VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE argumentos : ID VARTYPESEPARATOR TYPE COMA argumentos\n                 | ID VARTYPESEPARATOR TYPEempty :'
     
-_lr_action_items = {'INICIODEPROGRAMA':([0,],[2,]),'$end':([1,14,],[0,-1,]),'LIBRERIA':([2,39,],[6,6,]),'VARIABLE':([2,8,9,10,27,40,41,47,],[12,12,12,12,-10,12,-12,-11,]),'FUNCION':([2,8,9,10,27,40,41,47,],[13,13,13,13,-10,13,-12,-11,]),'ID':([2,8,9,10,13,15,16,20,25,27,40,41,42,47,],[7,7,7,7,21,22,23,24,29,-10,7,-12,29,-11,]),'FINPROGRAMA':([2,3,4,5,8,9,10,11,17,18,19,27,40,41,44,45,47,],[-15,14,-2,-3,-15,-15,-15,-9,-6,-7,-8,-10,-15,-12,-4,-5,-11,]),'PARENTESISA':([6,12,21,],[15,20,25,]),'IGUAL':([7,],[16,]),'OPERADORPUNTO':([22,],[26,]),'ENDOFLINE':([23,35,36,43,],[27,40,41,47,]),'VARTYPESEPARATOR':([24,29,34,],[28,33,38,]),'EXTENSION':([26,],[31,]),'TYPE':([28,33,38,],[32,37,43,]),'PARENTESISC':([30,31,32,37,46,],[34,35,36,-14,-13,]),'COMA':([35,37,],[39,42,]),}
+_lr_action_items = {'INICIODEPROGRAMA':([0,],[2,]),'$end':([1,16,],[0,-1,]),'LIBRERIA':([2,47,],[6,6,]),'VARIABLE':([2,8,9,10,11,32,46,48,49,55,],[13,13,13,13,13,-12,-11,13,-14,-13,]),'FUNCION':([2,8,9,10,11,32,46,48,49,55,],[14,14,14,14,14,-12,-11,14,-14,-13,]),'ID':([2,8,9,10,11,14,15,17,18,23,29,30,32,46,48,49,50,55,],[7,7,7,7,7,24,25,26,27,28,34,34,-12,-11,7,-14,34,-13,]),'PROCEDIMIENTO':([2,8,9,10,11,32,46,48,49,55,],[15,15,15,15,15,-12,-11,15,-14,-13,]),'FINPROGRAMA':([2,3,4,5,8,9,10,11,12,19,20,21,22,32,46,48,49,52,53,55,],[-17,16,-2,-3,-17,-17,-17,-17,-10,-6,-7,-8,-9,-12,-11,-17,-14,-4,-5,-13,]),'PARENTESISA':([6,13,24,25,],[17,23,29,30,]),'IGUAL':([7,],[18,]),'OPERADORPUNTO':([26,],[31,]),'ENDOFLINE':([27,41,42,43,51,],[32,46,48,49,55,]),'VARTYPESEPARATOR':([28,34,40,],[33,39,45,]),'EXTENSION':([31,],[37,]),'TYPE':([33,39,45,],[38,44,51,]),'PARENTESISC':([35,36,37,38,44,54,],[40,41,42,43,-16,-15,]),'COMA':([42,44,],[47,50,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'programa':([0,],[1,]),'declaraciones':([2,],[3,]),'librerias':([2,39,],[4,44,]),'cuerpo':([2,8,9,10,40,],[5,17,18,19,45,]),'variable':([2,8,9,10,40,],[8,8,8,8,8,]),'funcion':([2,8,9,10,40,],[9,9,9,9,9,]),'asignacion':([2,8,9,10,40,],[10,10,10,10,10,]),'empty':([2,8,9,10,40,],[11,11,11,11,11,]),'argumentos':([25,42,],[30,46,]),}
+_lr_goto_items = {'programa':([0,],[1,]),'declaraciones':([2,],[3,]),'librerias':([2,47,],[4,52,]),'cuerpo':([2,8,9,10,11,48,],[5,19,20,21,22,53,]),'variable':([2,8,9,10,11,48,],[8,8,8,8,8,8,]),'funcion':([2,8,9,10,11,48,],[9,9,9,9,9,9,]),'asignacion':([2,8,9,10,11,48,],[10,10,10,10,10,10,]),'procedimiento':([2,8,9,10,11,48,],[11,11,11,11,11,11,]),'empty':([2,8,9,10,11,48,],[12,12,12,12,12,12,]),'argumentos':([29,30,50,],[35,36,54,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -35,11 +35,13 @@ _lr_productions = [
   ('cuerpo -> variable cuerpo','cuerpo',2,'p_cuerpo','yacc.py',18),
   ('cuerpo -> funcion cuerpo','cuerpo',2,'p_cuerpo','yacc.py',19),
   ('cuerpo -> asignacion cuerpo','cuerpo',2,'p_cuerpo','yacc.py',20),
-  ('cuerpo -> empty','cuerpo',1,'p_cuerpo','yacc.py',21),
-  ('asignacion -> ID IGUAL ID ENDOFLINE','asignacion',4,'p_asignacion','yacc.py',24),
-  ('funcion -> FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE','funcion',8,'p_funcion','yacc.py',27),
-  ('variable -> VARIABLE PARENTESISA ID VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE','variable',7,'p_variable','yacc.py',30),
-  ('argumentos -> ID VARTYPESEPARATOR TYPE COMA argumentos','argumentos',5,'p_argumentos','yacc.py',33),
-  ('argumentos -> ID VARTYPESEPARATOR TYPE','argumentos',3,'p_argumentos','yacc.py',34),
-  ('empty -> <empty>','empty',0,'p_empty','yacc.py',38),
+  ('cuerpo -> procedimiento cuerpo','cuerpo',2,'p_cuerpo','yacc.py',21),
+  ('cuerpo -> empty','cuerpo',1,'p_cuerpo','yacc.py',22),
+  ('procedimiento -> PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINE','procedimiento',6,'p_procedimiento','yacc.py',25),
+  ('asignacion -> ID IGUAL ID ENDOFLINE','asignacion',4,'p_asignacion','yacc.py',28),
+  ('funcion -> FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE','funcion',8,'p_funcion','yacc.py',31),
+  ('variable -> VARIABLE PARENTESISA ID VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE','variable',7,'p_variable','yacc.py',34),
+  ('argumentos -> ID VARTYPESEPARATOR TYPE COMA argumentos','argumentos',5,'p_argumentos','yacc.py',37),
+  ('argumentos -> ID VARTYPESEPARATOR TYPE','argumentos',3,'p_argumentos','yacc.py',38),
+  ('empty -> <empty>','empty',0,'p_empty','yacc.py',42),
 ]
