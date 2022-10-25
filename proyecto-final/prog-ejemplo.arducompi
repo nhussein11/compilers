@@ -1,7 +1,7 @@
 PINICIO
 extend(nombreDeLibreria.Extension);
-VBLE(MD1:entero);
-VBLE(MD2:entero);
+VBLE(MD1:int);
+VBLE(MD2:int);
 MD2=3;//INICIO DE LA SECCION SETUP
 VPIN(MD1:OUTPUT);
 VPIN(MD2:OUTPUT);
