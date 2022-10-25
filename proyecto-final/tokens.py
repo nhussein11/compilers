@@ -37,7 +37,7 @@ def t_VARTYPESEPARATOR(t):
 
 
 def t_TYPE(t):
-    r"entero|texto|decimal|logico|INPUT|OUTPUT"
+    r"int|string|float|bool|INPUT|OUTPUT"
     return t
 
 
@@ -65,7 +65,7 @@ def t_OPERADOR(t):
 
 
 def t_COMMENT(t):
-    r"//.* | {*.*}"
+    r"//.* | {\*.\*}"
     t.lineno += 1
     return t
 
