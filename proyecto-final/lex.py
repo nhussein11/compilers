@@ -75,7 +75,7 @@ def t_OPERADORPUNTO(t):
     r'\.'
     return t
 def t_OPERADOR(t):
-    r"[+|-|*|>|<|>=|<=|==|!=|&&]"
+    r">|<|>=|<=|==|!=|&& |\+|\-| \*"
     return t
 
 

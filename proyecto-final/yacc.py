@@ -38,11 +38,11 @@ def p_reservadas(p):
                 | FRENAR PARENTESISA PARENTESISC ENDOFLINE"""
   pass
 def p_bucle(p):
-  """bucle : WHILE PARENTESISA PARENTESISC BEGIN cuerpo END ENDOFLINE"""
+  """bucle : WHILE PARENTESISA  comparacion PARENTESISC BEGIN cuerpo END ENDOFLINE"""
   pass
 def p_condicional(p):
-  """condicional : IF PARENTESISA PARENTESISC BEGIN cuerpo END ENDOFLINE
-                 | IF PARENTESISA PARENTESISC BEGIN cuerpo END ELSE BEGIN cuerpo END ENDOFLINE"""
+  """condicional : IF PARENTESISA comparacion PARENTESISC BEGIN cuerpo END ENDOFLINE
+                 | IF PARENTESISA  comparacion PARENTESISC BEGIN cuerpo END ELSE BEGIN cuerpo END ENDOFLINE"""
   pass
 def p_procedimiento(p):
   """procedimiento : PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINE"""
@@ -54,6 +54,26 @@ def p_asignacion(p):
                   | ID IGUAL BOOLEANS ENDOFLINE
                   """
   pass
+def p_comparacion(p):
+  """comparacion : ID OPERADOR ID
+                  | ID OPERADOR NUMBER
+                  | ID OPERADOR DECIMALNUMBER
+                  | ID OPERADOR BOOLEANS
+                  | NUMBER OPERADOR ID
+                  | NUMBER OPERADOR NUMBER
+                  | NUMBER OPERADOR DECIMALNUMBER
+                  | NUMBER OPERADOR BOOLEANS
+                  | DECIMALNUMBER OPERADOR ID
+                  | DECIMALNUMBER OPERADOR NUMBER
+                  | DECIMALNUMBER OPERADOR DECIMALNUMBER
+                  | DECIMALNUMBER OPERADOR BOOLEANS
+                  | BOOLEANS OPERADOR ID
+                  | BOOLEANS OPERADOR NUMBER
+                  | BOOLEANS OPERADOR DECIMALNUMBER
+                  | BOOLEANS OPERADOR BOOLEANS"""
+  pass
+
+
 def p_funcion(p):
   """funcion : FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE"""
   pass
