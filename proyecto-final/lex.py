@@ -30,6 +30,7 @@ tokens = [
     "DECIMALNUMBER",
     "OPERADOR",
     "OPERADORPUNTO",
+    "IGUAL",
     "COMMENT",
     "ENDOFLINE",
     "EXTENSION"
@@ -50,7 +51,9 @@ def t_NUMBER(t):
     t.value = int(t.value)
     return t
 
-
+def t_IGUAL(t):
+    r"="
+    return t
 def t_DECIMALNUMBER(t):
     r"\d+\.\d+"
     t.value = float(t.value)

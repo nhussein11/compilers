@@ -17,7 +17,11 @@ def p_librerias(p):
 def p_cuerpo(p):
   """ cuerpo : variable cuerpo
             | funcion cuerpo
+            | asignacion cuerpo
             | empty"""
+  pass
+def p_asignacion(p):
+  """asignacion : ID IGUAL ID ENDOFLINE"""
   pass
 def p_funcion(p):
   """funcion : FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE"""
