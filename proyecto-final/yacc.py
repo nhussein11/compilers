@@ -15,9 +15,15 @@ def p_librerias(p):
   pass
 
 def p_cuerpo(p):
-  """ cuerpo : VARIABLE PARENTESISA ID  VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE cuerpo
-            | FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE cuerpo
+  """ cuerpo : variable cuerpo
+            | funcion cuerpo
             | empty"""
+  pass
+def p_funcion(p):
+  """funcion : FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE"""
+  pass
+def p_variable(p):
+  """variable : VARIABLE PARENTESISA ID  VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE"""
   pass
 def p_argumentos(p):
   """ argumentos : ID VARTYPESEPARATOR TYPE COMA argumentos
