@@ -10,8 +10,8 @@ def p_declaraciones(p):
                    | cuerpo"""
   pass
 def p_librerias(p):
-  """ librerias : LIBRERIA PARENTESISA ID OPERADORPUNTO EXTENSION PARENTESISC COMA librerias
-                | LIBRERIA PARENTESISA ID OPERADORPUNTO EXTENSION PARENTESISC ENDOFLINE cuerpo"""
+  """ librerias : LIBRERIA PARENTESISA ID EXTENSION PARENTESISC COMA librerias
+                | LIBRERIA PARENTESISA ID EXTENSION PARENTESISC ENDOFLINE cuerpo"""
   pass
 
 def p_cuerpo(p):

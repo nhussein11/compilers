@@ -60,6 +60,9 @@ def t_NUMBER(t):
 def t_BOOLEANS(t):
     r"true|false"
     return t
+def t_EXTENSION(t):
+    r"\.[a-z][a-z][a-z]"
+    return t
 
 def t_OPERADOR(t):
     r">|<|(>=)|(<=)|(==)|(!=)|(&&) |\+|\-| \*"
@@ -71,13 +74,6 @@ def t_DECIMALNUMBER(t):
     r"\d+\.\d+"
     t.value = float(t.value)
     return t
-def t_EXTENSION(t):
-    r"Extension"
-    return t
-def t_OPERADORPUNTO(t):
-    r'\.'
-    return t
-
 
 def t_COMMENT(t):
     r"//.* | {\*.\*}"
@@ -118,17 +114,3 @@ def t_ID(t):
     return t
 
 analizador_lexico = lex.lex()
-
-# if __name__ == "__main__":
-#     import sys
-    
-#     with open("prog-ejemplo.arducompi", "r") as file:
-#         data = file.read()
-
-#     analizador_lexico.input(data)
-#     while True:
-#         tok = analizador_lexico.token()
-#         if not tok:
-#             break
-#         print(tok)
-            
