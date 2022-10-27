@@ -61,6 +61,9 @@ def t_BOOLEANS(t):
     r"true|false"
     return t
 
+def t_OPERADOR(t):
+    r">|<|(>=)|(<=)|(==)|(!=)|(&&) |\+|\-| \*"
+    return t
 def t_IGUAL(t):
     r"="
     return t
@@ -73,9 +76,6 @@ def t_EXTENSION(t):
     return t
 def t_OPERADORPUNTO(t):
     r'\.'
-    return t
-def t_OPERADOR(t):
-    r">|<|>=|<=|==|!=|&& |\+|\-| \*"
     return t
 
 
@@ -118,3 +118,17 @@ def t_ID(t):
     return t
 
 analizador_lexico = lex.lex()
+
+# if __name__ == "__main__":
+#     import sys
+    
+#     with open("prog-ejemplo.arducompi", "r") as file:
+#         data = file.read()
+
+#     analizador_lexico.input(data)
+#     while True:
+#         tok = analizador_lexico.token()
+#         if not tok:
+#             break
+#         print(tok)
+            
