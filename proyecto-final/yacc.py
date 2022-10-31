@@ -1,7 +1,7 @@
 from ply import yacc
 from lex import tokens,analizador_lexico
-
-
+from translator.callbacks.index import *
+from translator.translator import translate
 def p_programa(p):
   """programa : INICIODEPROGRAMA declaraciones FINPROGRAMA"""
   pass
@@ -12,6 +12,7 @@ def p_declaraciones(p):
 def p_librerias(p):
   """ librerias : LIBRERIA PARENTESISA ID EXTENSION PARENTESISC COMA librerias
                 | LIBRERIA PARENTESISA ID EXTENSION PARENTESISC ENDOFLINE cuerpo"""
+  translate(p,cb_p_librerias)
   pass
 
 def p_cuerpo(p):
