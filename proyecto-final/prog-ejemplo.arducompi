@@ -1,5 +1,5 @@
 PINICIO
-extend(nombreDeLibreria.txt);
+extend(Hola.txt);
 VBLE(MD1:int);
 VBLE(MD2:int);
 VBLE(MD3:bool);

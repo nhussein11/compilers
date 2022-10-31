@@ -1,6 +1,6 @@
 def cb_p_librerias(p):
   list_cast = list(p)
-  result = "".join(["#include <"]+list_cast[3:4]+[".h>"]+["\n"])
+  result = "".join(["#include \""]+list_cast[3:4]+[".h\""]+["\n"])
   return result
 
 
