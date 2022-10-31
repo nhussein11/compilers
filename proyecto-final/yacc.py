@@ -80,6 +80,7 @@ def p_funcion(p):
   pass
 def p_variable(p):
   """variable : VARIABLE PARENTESISA ID  VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE"""
+  translate(p,cb_p_variable)
   pass
 def p_argumentos(p):
   """ argumentos : ID VARTYPESEPARATOR TYPE COMA argumentos

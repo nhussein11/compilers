@@ -1,4 +1,3 @@
-from unittest import skip
 from ply import lex
 reserved = {
     "PINICIO": "INICIODEPROGRAMA",
