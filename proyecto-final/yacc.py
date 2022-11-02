@@ -6,12 +6,12 @@ def p_programa(p):
   """programa : INICIODEPROGRAMA declaraciones FINPROGRAMA"""
   pass
 def p_declaraciones(p):
-  """declaraciones : librerias
-                   | cuerpo"""
+  """declaraciones : librerias cuerpo
+                    | cuerpo"""
   pass
 def p_librerias(p):
   """ librerias : LIBRERIA PARENTESISA ID EXTENSION PARENTESISC COMA librerias
-                | LIBRERIA PARENTESISA ID EXTENSION PARENTESISC ENDOFLINE cuerpo"""
+                | LIBRERIA PARENTESISA ID EXTENSION PARENTESISC ENDOFLINE"""
   translate(p,cb_p_librerias)
   pass
 
