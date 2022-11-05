@@ -83,6 +83,7 @@ def p_comparacion(p):
 
 def p_funcion(p):
   """funcion : FUNCION ID PARENTESISA argumentos PARENTESISC VARTYPESEPARATOR TYPE ENDOFLINE"""
+  translate(p,cb_p_funcion)
   pass
 def p_variable(p):
   """variable : VARIABLE PARENTESISA ID  VARTYPESEPARATOR TYPE PARENTESISC ENDOFLINE"""

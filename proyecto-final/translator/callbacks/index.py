@@ -20,7 +20,12 @@ def cb_p_condicional(p):
 
 def cb_p_procendimiento(p):
   list_cast = list(p)
-  result = "".join(["void "]+[list_cast[2]]+["()"]+["{"]+["\n"]+["}"]+["\n"])
+  result = "".join([list_cast[6]]+[" "]+[list_cast[1]]+["()"]+["{"]+["\n"]+["}"]+["\n"])
+  return result
+
+def cb_p_funcion(p):
+  list_cast = list(p)
+  result = "".join([list_cast[5]]+[list_cast[2]]+["()"]+["{"]+["\n"]+["}"]+["\n"])
   return result
 
 # def cb_p_comparacion(p):
