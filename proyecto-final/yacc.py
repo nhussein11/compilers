@@ -46,9 +46,11 @@ def p_bucle(p):
 def p_condicional(p):
   """condicional : IF PARENTESISA comparacion PARENTESISC BEGIN cuerpo END ENDOFLINE
                  | IF PARENTESISA  comparacion PARENTESISC BEGIN cuerpo END ELSE BEGIN cuerpo END ENDOFLINE"""
+  translate(p,cb_p_condicional)
   pass
 def p_procedimiento(p):
   """procedimiento : PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINE"""
+  translate(p,cb_p_procendimiento)
   pass
 def p_asignacion(p):
   """asignacion : ID IGUAL ID ENDOFLINE 
@@ -75,6 +77,7 @@ def p_comparacion(p):
                   | BOOLEANS OPERADOR NUMBER
                   | BOOLEANS OPERADOR DECIMALNUMBER
                   | BOOLEANS OPERADOR BOOLEANS"""
+  # translate(p,cb_p_comparacion)
   pass
 
 
