@@ -1,7 +1,9 @@
 from ply import yacc
-from lex import tokens,analizador_lexico
+from lex import tokens, analizador_lexico
 from translator.callbacks.index import *
 from translator.translator import translate
+
+
 def p_programa(p):
   """programa : INICIODEPROGRAMA declaraciones FINPROGRAMA"""
   pass
@@ -49,11 +51,12 @@ def p_procedimiento(p):
   """procedimiento : PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINE"""
   pass
 def p_asignacion(p):
-  """asignacion : ID IGUAL ID ENDOFLINE
-                  | ID IGUAL NUMBER ENDOFLINE
-                  | ID IGUAL DECIMALNUMBER ENDOFLINE
-                  | ID IGUAL BOOLEANS ENDOFLINE
+  """asignacion : ID IGUAL ID ENDOFLINE 
+                  | ID IGUAL NUMBER ENDOFLINE  
+                  | ID IGUAL DECIMALNUMBER ENDOFLINE 
+                  | ID IGUAL BOOLEANS ENDOFLINE 
                   """
+  translate(p,cb_p_asignacion)
   pass
 def p_comparacion(p):
   """comparacion : ID OPERADOR ID
@@ -94,5 +97,6 @@ def p_error(p):
   print("Error sintÃ¡ctico en la li­nea: " + str(p.lineno)
               + ". No se esperaba el token: " + str(p.value))
   raise Exception('syntax', 'error')
-analizador_sintactico = yacc.yacc()
+
 analizador_lexico.lineno = 0
+analizador_sintactico = yacc.yacc()
