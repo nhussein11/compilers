@@ -36,9 +36,12 @@ def cb_p_comparacion(p):
 
 def cb_p_vpin(p):
    list_cast = list(p)
-   print(list_cast)
    result = "".join(["pinMode("]+[list_cast[3]]+[" , "]+[list_cast[5]]+[" );"]+["\n"])
    return result
+def cb_p_reservadas(p):
+  list_cast = list(p)
+  return "".join([list_cast[1]]+[list_cast[2]]+[list_cast[3]]+[";"]+["\n"])
+
 if __name__ == "__main__":
   res = cb_p_librerias([None, 'extend', '(', 'nombreDeLibreria', '.txt', ')', ';', None])
 

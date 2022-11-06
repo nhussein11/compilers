@@ -4,6 +4,7 @@ from translator.callbacks.index import *
 from translator.translator import translate
 
 is_first_pin = False
+is_first_reserved = False
 def p_programa(p):
   """programa : INICIODEPROGRAMA declaraciones FINPROGRAMA"""
   pass
@@ -32,7 +33,7 @@ def p_vpin(p):
   """vpin : VPIN PARENTESISA ID VARTYPESEPARATOR TYPEVPIN PARENTESISC ENDOFLINE"""
   is_first_pin = True if p_vpin.counter <= 0 else False
   p_vpin.counter += 1
-  translate(p, cb_p_vpin, True, is_first_pin)
+  translate(p, cb_p_vpin, is_first_pin=is_first_pin,is_pin=True)
   pass
 p_vpin.counter = 0
 def p_reservadas(p):
@@ -43,7 +44,12 @@ def p_reservadas(p):
                 | ESPERAR PARENTESISA NUMBER PARENTESISC ENDOFLINE
                 | ESPERAR PARENTESISA ID PARENTESISC ENDOFLINE
                 | FRENAR PARENTESISA PARENTESISC ENDOFLINE"""
+  is_first_reserved = True if p_reservadas.counter <= 0 else False
+  p_reservadas.counter += 1
+  translate(p,cb_p_reservadas, is_first_reserved=is_first_reserved, is_reserved=True)
   pass
+p_reservadas.counter = 0
+
 def p_bucle(p):
   """bucle : WHILE PARENTESISA  comparacion PARENTESISC BEGIN cuerpo END ENDOFLINE"""
   pass
