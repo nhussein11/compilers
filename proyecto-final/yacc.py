@@ -2,8 +2,7 @@ from ply import yacc
 from lex import tokens, analizador_lexico
 from translator.callbacks.index import *
 from translator.translator import translate
-
-
+is_setup = False
 def p_programa(p):
   """programa : INICIODEPROGRAMA declaraciones FINPROGRAMA"""
   pass
@@ -30,6 +29,7 @@ def p_cuerpo(p):
   pass
 def p_vpin(p):
   """vpin : VPIN PARENTESISA ID VARTYPESEPARATOR TYPEVPIN PARENTESISC ENDOFLINE"""
+  translate(p,cb_p_vpin)
   pass
 def p_reservadas(p):
   """ reservadas : ADELANTE PARENTESISA PARENTESISC ENDOFLINE
@@ -46,7 +46,7 @@ def p_bucle(p):
 def p_condicional(p):
   """condicional : IF PARENTESISA comparacion PARENTESISC BEGIN cuerpo END ENDOFLINE
                  | IF PARENTESISA  comparacion PARENTESISC BEGIN cuerpo END ELSE BEGIN cuerpo END ENDOFLINE"""
-  translate(p,cb_p_condicional)
+  #translate(p,cb_p_condicional)
   pass
 def p_procedimiento(p):
   """procedimiento : PROCEDIMIENTO ID PARENTESISA argumentos PARENTESISC ENDOFLINE"""
@@ -77,7 +77,6 @@ def p_comparacion(p):
                   | BOOLEANS OPERADOR NUMBER
                   | BOOLEANS OPERADOR DECIMALNUMBER
                   | BOOLEANS OPERADOR BOOLEANS"""
-  # translate(p,cb_p_comparacion)
   pass
 
 
