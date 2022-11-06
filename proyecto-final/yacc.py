@@ -2,7 +2,9 @@ from ply import yacc
 from lex import tokens, analizador_lexico
 from translator.callbacks.index import *
 from translator.translator import translate
+
 is_setup = False
+is_first_pin = False
 def p_programa(p):
   """programa : INICIODEPROGRAMA declaraciones FINPROGRAMA"""
   pass
@@ -29,7 +31,8 @@ def p_cuerpo(p):
   pass
 def p_vpin(p):
   """vpin : VPIN PARENTESISA ID VARTYPESEPARATOR TYPEVPIN PARENTESISC ENDOFLINE"""
-  translate(p,cb_p_vpin)
+  is_first_pin = True if p_vpin.counter <= 1 else False
+  translate(p,cb_p_vpin, is_first_pin)
   pass
 def p_reservadas(p):
   """ reservadas : ADELANTE PARENTESISA PARENTESISC ENDOFLINE
