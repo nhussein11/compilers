@@ -3,7 +3,6 @@ from lex import tokens, analizador_lexico
 from translator.callbacks.index import *
 from translator.translator import translate
 
-is_setup = False
 is_first_pin = False
 def p_programa(p):
   """programa : INICIODEPROGRAMA declaraciones FINPROGRAMA"""
@@ -31,9 +30,11 @@ def p_cuerpo(p):
   pass
 def p_vpin(p):
   """vpin : VPIN PARENTESISA ID VARTYPESEPARATOR TYPEVPIN PARENTESISC ENDOFLINE"""
-  is_first_pin = True if p_vpin.counter <= 1 else False
-  translate(p,cb_p_vpin, is_first_pin)
+  is_first_pin = True if p_vpin.counter <= 0 else False
+  p_vpin.counter += 1
+  translate(p, cb_p_vpin, True, is_first_pin)
   pass
+p_vpin.counter = 0
 def p_reservadas(p):
   """ reservadas : ADELANTE PARENTESISA PARENTESISC ENDOFLINE
                 | ATRAS PARENTESISA  PARENTESISC ENDOFLINE

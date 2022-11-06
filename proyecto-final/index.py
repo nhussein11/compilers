@@ -5,7 +5,8 @@ try:
     try:
       analizador_sintactico.parse(data)
       print("Analsis correcto")
-    except Exception:
+    except Exception as e:
+      print(e)
       print("Analisis Incorrecto")
 except IndexError:
   print("Error al leer el archivo")
