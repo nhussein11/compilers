@@ -1,6 +1,6 @@
 def cb_p_librerias(p):
   list_cast = list(p)
-  result = "".join(["#include \""]+list_cast[3:4]+[".h\""]+["\n"])
+  result = "".join(["#include <"]+list_cast[3:4]+[".h>"]+["\n"])
   return result
 
 def cb_p_variable(p):
@@ -10,7 +10,7 @@ def cb_p_variable(p):
 
 def cb_p_asignacion(p):
   list_cast = list(p)
-  result = "".join([list_cast[1]]+[" = "]+[str(list_cast[3])]+[";"]+["\n"])
+  result = "".join(["int "]+[list_cast[1]]+[" = "]+[str(list_cast[3])]+[";"]+["\n"])
   return result
 
 def cb_p_condicional(p):
@@ -40,7 +40,18 @@ def cb_p_vpin(p):
    return result
 def cb_p_reservadas(p):
   list_cast = list(p)
-  return "".join([list_cast[1]]+[list_cast[2]]+[list_cast[3]]+[";"]+["\n"])
+  reserved = ""
+  if (list_cast[1] == "ADELANTE"):
+    reserved  ="avanzar"
+  if (list_cast[1] == "IZQUIERDA"):
+    reserved  ="giro_izquierda"
+  if (list_cast[1] == "FRENAR"):
+    reserved  ="parar"
+  if (list_cast[1] == "DERECHA"):
+    reserved = "giro_derecha"
+  if (list_cast[1] == "ESPERAR"):
+    reserved = "delay"
+  return "".join([reserved]+[list_cast[2]]+[list_cast[3]]+[";"]+["\n"])
 
 if __name__ == "__main__":
   res = cb_p_librerias([None, 'extend', '(', 'nombreDeLibreria', '.txt', ')', ';', None])

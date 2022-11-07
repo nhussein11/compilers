@@ -12,7 +12,7 @@ def translate(p,callback,is_pin=False,is_first_pin=False,is_first_reserved=False
         return
       if(is_reserved):
         if(is_first_reserved):
-          file_content+=['loop setup(){\n'] + ['\n'] +['}\n']
+          file_content+=['void loop(){\n'] + ['\n'] +['}\n']
         index = file_content.index('\n',file_content.index('\n')+1)
         file_content.insert(index, callback(p))
         fileWrite.write("".join(file_content))
