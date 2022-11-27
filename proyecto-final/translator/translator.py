@@ -19,8 +19,3 @@ def translate(p,callback,is_pin=False,is_first_pin=False,is_first_reserved=False
         return
       file_content.append(callback(p))
       fileWrite.write("".join(file_content))
-
- 
-
-  
-
